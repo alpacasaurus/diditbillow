@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <title>Did it Billow?</title>
+    </head>
+    <style type="text/css">
+
+        /*html, body {height: 100%;}*/
+    
+        body {
+          color: black;
+          background-color: white;
+          padding: 2rem;
+          text-align: center;
+        }
+    
+        a, body {color: black;}
+    
+        .click {
+          position: absolute;
+          border: 1px solid #000;
+    
+          -webkit-border-radius: 3px;
+                  border-radius: 3px;
+    
+          -webkit-transition: 0.5s ease-out;
+             -moz-transition: 0.5s ease-out;
+               -o-transition: 0.5s ease-out;
+                  transition: 0.5s ease-out;
+        }
+    
+    
+        a#answer {
+          display: inline-block;
+          margin-top: 200px;
+          font-weight: bold;
+          font-size: 120pt;
+          font-family: Arial, sans-serif;
+          text-decoration: none;
+    
+          cursor: default;
+        }
+    
+        .flag {
+          position: absolute;
+          cursor: none;
+    
+          border: 1px solid #d6d6d6;
+    
+          -webkit-border-radius: 2px;
+               -o-border-radius: 2px;
+                  border-radius: 2px;
+        }
+        .flag.ghost {opacity: 0.4;}
+        .flag.me {pointer-events: none;}
+    
+        #legend {
+          position: fixed;
+          top: 0; right: 0;
+          width: 200px;
+          padding-right: 15px; padding-top: 5px;
+          text-align: right;
+          font-size: 10pt;
+        }
+    
+        /* remove display: none, and turn on setTimers(), to restore */
+        #links {
+          position: fixed;
+          top: 0; left: 0;
+          width: 300px;
+          padding-left: 15px; padding-top: 5px;
+          text-align: left;
+          font-size: 10pt;
+          z-index: 9999;
+    
+          opacity: 0;
+    
+          -webkit-transition: 0.5s ease-out;
+             -moz-transition: 0.5s ease-out;
+               -o-transition: 0.5s ease-out;
+                  transition: 0.5s ease-out;
+        }
+    
+        #links a {
+          color: #333;
+          display: inline-block;
+          margin-right: 10px;
+        } #links a#console {display: none;}
+        /* 4 9's, needs to be clickable */
+    
+    
+        /*
+          For now, disable flags on mobile, to focus the experience. It's just not a good mobile experience.
+        */
+        @media only screen and (max-device-width: 480px) {
+          .flag {
+            display: none;
+          }
+    
+          .click {
+            border-width: 0;
+            display: none;
+          }
+        }
+    
+        /*
+          Dark mode overrides.
+    
+          Apparently, order matters: these dark mode rules need to come after any rule they are modifying.
+        */
+        @media (prefers-color-scheme: dark) {
+          body {
+            background-color: black;
+            color: white;
+          }
+          a#answer {
+            color: white;
+          }
+    
+          .click {
+            border: 1px solid #fff;
+          }
+    
+          .flag {
+            border: 1px solid #565656;
+          }
+    
+          #links a {
+            color: #ccc;
+          }
+    
+        }
+      </style>
+    </head>
+    <body>
+        <a id="answer">NO</a>
+        <br />
+        <img src="https://i.imgur.com/jRivuQt.jpg" />
+    </body>
+</html>
